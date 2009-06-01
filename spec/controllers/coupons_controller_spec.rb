@@ -12,4 +12,9 @@ describe CouponsController, "GET index" do
     get :index
     assigns[:coupons].should be(coupons)
   end
+  
+  it "assigns a new coupon to @new_coupon" do
+    get :index
+    assigns[:new_coupon].should be_new_record
+  end
 end

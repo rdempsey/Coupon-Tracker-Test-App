@@ -12,3 +12,16 @@
     <% end -%>
   </table>
 <%- end -%>
+
+<% form_for(@new_coupon) do |f| %>
+  <%= f.label(:where) %>
+  <%= f.text_field(:where) %><br />
+  
+  <%= f.label(:amount) %>
+  <%= f.text_field(:amount) %><br />
+  
+  <%= f.label(:description) %>
+  <%= f.text_area(:description) %>
+  
+  <%= submit_tag("Create") %>
+<% end -%>
