@@ -8,7 +8,6 @@ Feature: Viewing coupons on the homepage
     When I go to the homepage
     Then I should see "You need to start using coupons"
   
-  @focus
   Scenario Outline: One coupon
     Given a coupon
     | where | amount| description   |
@@ -21,4 +20,4 @@ Feature: Viewing coupons on the homepage
   Examples:
     | where | amount| description   |
     | Panera| 5.00  | very good food|
-    
+    | McDonald's | 1.00 | shitty food bad business practices |

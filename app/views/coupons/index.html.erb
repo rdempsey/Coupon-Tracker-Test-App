@@ -1,9 +1,11 @@
+<%- if @coupons.empty? -%>
 You need to start using coupons.
-
+<%- else -%>
 1 coupon
 
-Panera
+<%= @coupons.first.where %>
 
-5.00
+<%= number_to_currency @coupons.first.amount %>
 
-very good food
+<%= @coupons.first.description %>
+<%- end -%>
