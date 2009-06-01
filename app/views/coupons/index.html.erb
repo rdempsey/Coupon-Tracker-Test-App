@@ -1,1 +1,14 @@
-You need to start using coupons.
+<%- if @coupons.empty? -%>
+  You need to start using coupons.
+<%- else -%>
+  <%= pluralize(@coupons.length, "coupon") %>
+  <table>
+    <% @coupons.each do |coupon| %>
+      <tr>
+        <td><%= coupon.where %></td>
+        <td><%= number_to_currency coupon.amount %></td>
+        <td><%= coupon.description %></td>
+      </tr>
+    <% end -%>
+  </table>
+<%- end -%>

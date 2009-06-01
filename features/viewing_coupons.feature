@@ -3,22 +3,31 @@ Feature: Viewing coupons on the homepage
   As a frugal person
   I want to see the list of used coupons on the homepage
   
-  @focus
   Scenario: No coupons
     Given no coupons
     When I go to the homepage
     Then I should see "You need to start using coupons"
   
-  Scenario: One coupon
-    Given a coupon
+  Scenario Outline: One coupon
+    Given the coupon
     | where | amount| description   |
-    | panera| 5.00  | very good food|
+    | <where>| <amount>  | <description>|
     When I go to the homepage
     Then I should see "1 coupon"
-    And I should see "Panera"
-    And I should see "5.00"
-    And I should see "very good food"
-  
-  
-  
+    And I should see "<where>"
+    And I should see "<amount>"
+    And I should see "<description>"
+  Examples:
+    | where | amount| description   |
+    | Panera| 5.00  | very good food|
+    | McDonald's | 1.00 | shitty food bad business practices |
+    
+  Scenario: Two coupons
+    Given the coupons
+    | where | amount| description   |
+    | Panera| 5.00  | very good food|
+    | McDonald's | 1.00 | shitty food bad business practices |
+    When I go to the homepage
+    Then I should see "2 coupons"
+    And I should see the coupons
   

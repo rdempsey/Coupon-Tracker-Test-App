@@ -1,1 +1,1 @@
-default: features -r features -t focus
+default: features -r features
