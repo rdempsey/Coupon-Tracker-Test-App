@@ -18,3 +18,17 @@ describe CouponsController, "GET index" do
     assigns[:new_coupon].should be_new_record
   end
 end
+
+describe CouponsController, "POST create" do
+  it "redirects to index" do
+    Coupon.stub!(:create)
+    post :create
+    response.should redirect_to(coupons_path)
+  end
+  
+  it "creates the coupon" do
+    coupon_params = { "where" => "panera", "amount" => "6.00", "description" => "i keep using this example" }
+    Coupon.should_receive(:create!).with(coupon_params)
+    post :create, :coupon => coupon_params
+  end
+end
