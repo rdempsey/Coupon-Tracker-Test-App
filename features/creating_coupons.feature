@@ -3,7 +3,6 @@ Feature: Creating coupons
   As a frugal shopper
   I want to be able to enter a coupon into the system
   
-  @focus
   Scenario: Entering a coupon
     Given I am on the homepage
     When I enter the coupon
