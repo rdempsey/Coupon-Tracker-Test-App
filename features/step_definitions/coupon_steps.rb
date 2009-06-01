@@ -8,7 +8,7 @@ Given /^the coupons?$/ do |table|
   end
 end
 
-Then /^I should see the coupons$/ do
+Then /^I should see the coupons?$/ do
   @coupons.each do |coupon|
     Then "I should see \"#{coupon[:where]}\""
     And "I should see \"#{coupon[:amount]}\""

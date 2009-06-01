@@ -14,9 +14,7 @@ Feature: Viewing coupons on the homepage
     | <where>| <amount>  | <description>|
     When I go to the homepage
     Then I should see "1 coupon"
-    And I should see "<where>"
-    And I should see "<amount>"
-    And I should see "<description>"
+    And I should see the coupon
   Examples:
     | where | amount| description   |
     | Panera| 5.00  | very good food|
