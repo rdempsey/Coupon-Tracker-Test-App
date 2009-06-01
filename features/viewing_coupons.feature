@@ -9,7 +9,7 @@ Feature: Viewing coupons on the homepage
     Then I should see "You need to start using coupons"
   
   Scenario Outline: One coupon
-    Given a coupon
+    Given the coupon
     | where | amount| description   |
     | <where>| <amount>  | <description>|
     When I go to the homepage
@@ -21,3 +21,13 @@ Feature: Viewing coupons on the homepage
     | where | amount| description   |
     | Panera| 5.00  | very good food|
     | McDonald's | 1.00 | shitty food bad business practices |
+    
+  Scenario: Two coupons
+    Given the coupons
+    | where | amount| description   |
+    | Panera| 5.00  | very good food|
+    | McDonald's | 1.00 | shitty food bad business practices |
+    When I go to the homepage
+    Then I should see "2 coupons"
+    And I should see the coupons
+  
